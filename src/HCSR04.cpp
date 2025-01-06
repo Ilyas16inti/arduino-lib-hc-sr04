@@ -43,9 +43,11 @@ float UltraSonicDistanceSensor::measureDistanceCm(float temperature) {
     unsigned long durationMicroSec = pulseIn(echoPin, HIGH, maxDistanceDurationMicroSec); // can't measure beyond max distance
 
     float distanceCm = durationMicroSec / 2.0 * speedOfSoundInCmPerMicroSec;
-    if (distanceCm == 0 || distanceCm > maxDistanceCm) {
-        return -1.0 ;
-    } else {
+    if (distanceCm == 0) {
+        return 0.0 ;
+    } else if(distanceCm > maxDistanceCm){
+        return -1.0;
+    }else {
         return distanceCm;
     }
 }
