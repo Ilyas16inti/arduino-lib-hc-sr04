@@ -50,4 +50,4 @@ float UltraSonicDistanceSensor::measureDistanceCm(float temperature) {
     else 
         return distanceCm;
     }
-}
+
